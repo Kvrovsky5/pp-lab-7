@@ -7,6 +7,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -82,7 +83,7 @@ public class Main extends Application {
                 if (file.isDirectory()) {
                     searchInDirectory(file, searchPhrase, results);
                 } else {
-                    if (containsPhrase(file, searchPhrase)) {
+                    if (file.getName().contains(searchPhrase) || containsPhrase(file, searchPhrase)) {
                         results.append(file.getAbsolutePath()).append("\n");
                     }
                 }
